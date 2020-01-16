@@ -9,9 +9,9 @@ class BMI_Test(unittest.TestCase):
         stub3 = -50
 
         # assume
-        expected1 = 178
-        expected2 = 1
-        expected3 = 1
+        expected1 = 1.78
+        expected2 = -1
+        expected3 = -1
 
         # action
         result1 = BMI.check_height(stub1)
@@ -32,9 +32,9 @@ class BMI_Test(unittest.TestCase):
 
         # assume
         expected1 = 178
-        expected2 = 1
-        expected3 = 1
-        expected4 = 1
+        expected2 = 400
+        expected3 = 0
+        expected4 = 0
 
         # action
         result1 = BMI.check_weight(stub1)
@@ -49,28 +49,40 @@ class BMI_Test(unittest.TestCase):
         self.assertEqual(result4, expected4)
         
     def test_BMI(self):
-        # stub height weight
-        height_stub1 = 180
-        height_stub2 = 0
-        height_stub3 = -50
-        weight_stub1 = 60
-        weight_stub2 = 1000
-        weight_stub3 = -5
+        # stub height
+        height_stub1 = 1.5
+        height_stub2 = 1.65
+        height_stub3 = 1.8
+        height_stub4 = -1
+        height_stub5 = 0.9
+        
+        # stub weight
+        weight_stub1 = 40
+        weight_stub2 = 60
+        weight_stub3 = 80
+        weight_stub4 = 0
+        weight_stub5 = 0
 
         # assume
-        expected1 = 178
-        expected2 = 1
-        expected3 = 1
+        expected1 = 17.77777777777778
+        expected2 = 22.03856749311295
+        expected3 = 24.691358024691358
+        expected4 = 0
+        expected5 = 0
 
         # action
-        result1 = BMI.check_BMI(stub1)
-        result2 = BMI.check_BMI(stub2)
-        result3 = BMI.check_BMI(stub3)
+        result1 = BMI.check_BMI(weight_stub1, height_stub1)
+        result2 = BMI.check_BMI(weight_stub2, height_stub2)
+        result3 = BMI.check_BMI(weight_stub3, height_stub3)
+        result4 = BMI.check_BMI(weight_stub4, height_stub3)
+        result5 = BMI.check_BMI(weight_stub5, height_stub5)
 
         # expect/assert
         self.assertEqual(result1, expected1)
         self.assertEqual(result2, expected2)
         self.assertEqual(result3, expected3) 
+        self.assertEqual(result4, expected4)
+        self.assertEqual(result5, expected5)
 
 
 if __name__ == '__main__':
