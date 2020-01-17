@@ -50,16 +50,7 @@ class BMI:
         
     @staticmethod
     def check_BMI(weight, height):
-        if height == 0:
-            raise ValueError(BMI.height_error + BMI.zero_value)
-        if weight == 0:
-            raise ValueError(BMI.weight_error + BMI.zero_value)
-        if height < 0:
-            raise ValueError(BMI.height_error + BMI.negative_error)
-        if weight < 0:
-            raise ValueError(BMI.weight_error + BMI.negative_error)
-
-        test_BMI = weight/BMI.check_height(height)**2
+        test_BMI = BMI.check_weight(weight)/BMI.check_height(height)**2
         
         if 0 < test_BMI < 15:
             print('Very severely underweight', test_BMI)
