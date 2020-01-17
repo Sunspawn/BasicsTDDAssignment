@@ -1,5 +1,6 @@
 import unittest
-from BMI import BMI
+from src.BMI import BMI
+
 
 class BMI_Test(unittest.TestCase):
     def test_height(self):
@@ -83,6 +84,9 @@ class BMI_Test(unittest.TestCase):
         self.assertEqual(result3, expected3) 
         self.assertEqual(result4, expected4)
         self.assertEqual(result5, expected5)
+
+    def get_tests(self):
+        return self.test_height, self.test_weight, self.test_BMI
 
 
 if __name__ == '__main__':
