@@ -1,5 +1,4 @@
-
-'''
+"""
 num1 = 40/1.5**2
 print('40/1.5**2=', num1)
 num1 = 60/1.65**2
@@ -18,19 +17,22 @@ num1 = 1/(-1)**2
 print('1/(-1)**2=', num1)
 num1 = -1/0.9**2
 print('-1/0.9**2=', num1)
-'''
+"""
+
 
 class BMI:
+    height_error = "Height error: "
+    weight_error = "Weight error: "
+    negative_error = "Negative value."
+    zero_value = "Zero value."
     
     @staticmethod
     def check_height(num):
         if num == 0:
-            print('dividing by 0(height)')
-            return -1
-        
+            raise ValueError(BMI.height_error + BMI.zero_error)
+
         if num < 0:
-            print('negative height value')
-            return -1
+            raise ValueError(BMI.height_error + BMI.negative_error)
         
         if 0 < num:
             return num/100
@@ -38,29 +40,24 @@ class BMI:
     @staticmethod
     def check_weight(num):
         if num == 0:
-            print('0(weight) is being divided')
-            return 0
-        
+            raise ValueError(BMI.weight_error + BMI.zero_value)
+
         if num < 0:
-            print('negative weight value')
-            return 0
+            raise ValueError(BMI.weight_error + BMI.negative_error)
         
         if 0 < num:
             return num
         
     @staticmethod
-    def check_BMI(weight,height):
-        test_BMI = weight/height**2
-        if test_BMI == 0 or test_BMI == -1:
-            print('wrong parameters try again')
-            return test_BMI
+    def check_BMI(weight, height):
+        test_BMI = BMI.check_weight(weight)/BMI.check_height(height)**2
         
-        if 0 < test_BMI< 15:
+        if 0 < test_BMI < 15:
             print('Very severely underweight', test_BMI)
             return test_BMI
 
         if 15 <= test_BMI < 16:
-            print('Severely underweight Range', test_BMI)
+            print('Severely underweight', test_BMI)
             return test_BMI
         
         if 16 <= test_BMI < 18.5:
@@ -72,7 +69,7 @@ class BMI:
             return test_BMI
         
         if 25 <= test_BMI < 30:
-            print('Overweigh', test_BMI)
+            print('Overweight', test_BMI)
             return test_BMI
         
         if 30 <= test_BMI < 35:
