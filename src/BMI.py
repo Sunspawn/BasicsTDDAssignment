@@ -24,7 +24,7 @@ class BMI:
     height_error = "Height error: "
     weight_error = "Weight error: "
     negative_error = "Negative value."
-    zero_value = "Zero value."
+    zero_error = "Zero value."
     
     @staticmethod
     def check_height(num):
@@ -40,7 +40,7 @@ class BMI:
     @staticmethod
     def check_weight(num):
         if num == 0:
-            raise ValueError(BMI.weight_error + BMI.zero_value)
+            raise ValueError(BMI.weight_error + BMI.zero_error)
 
         if num < 0:
             raise ValueError(BMI.weight_error + BMI.negative_error)
